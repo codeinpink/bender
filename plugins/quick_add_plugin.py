@@ -22,7 +22,8 @@ class QuickAddPluginPlugin(WillPlugin):
     def quick_wrap_code(self, message, name, code):
         code_array = code.split('\n')
         print code_array
-        code = 'from will.plugin import WillPlugin\n' + \
+        code =   '# -*- coding: utf-8 -*-\n' + \
+                 'from will.plugin import WillPlugin\n' + \
                  'from will.decorators import respond_to, periodic, hear, randomly, route, rendered_template, require_settings\n\n' + \
                  'class {}Plugin(WillPlugin):\n'.format(name) + \
                  '    @hear("^/bender-{}")'.format(name) 
