@@ -7,6 +7,8 @@ class AddPluginPlugin(WillPlugin):
     def add_plugin(self, message, name, code):
         """add_plugin: Add a plugin to Bender from within HipChat"""
         self.reply(message, "I'm working on it.")
+        self.say("Here's your new plugin, {}.py".format(name))
+        self.say("/code {}".format(code))
 
         with open('plugins/' + name + '.py', 'w+') as f:
             f.write(code)
