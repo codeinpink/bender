@@ -1,6 +1,5 @@
 from will.plugin import WillPlugin
-from will.decorators import respond_to, hear
-
+from will.decorators import respond_to, periodic, hear, randomly, route, rendered_template, require_settings
 class QuickAddPluginPlugin(WillPlugin):
 
     @hear("^/bender-add-plugin (?P<name>.\w+) (?P<code>.*)", multiline=True)
@@ -22,7 +21,7 @@ class QuickAddPluginPlugin(WillPlugin):
 	
     def quick_wrap_code(message, name, code):
         code += 'from will.plugin import WillPlugin\n
-                 from will.decorators import respond_to, hear\n\n
+                 from will.decorators import respond_to, periodic, hear, randomly, route, rendered_template, require_settings\n\n
                  class QuickAddPluginPlugin(WillPlugin):\n
                  @hear("^{} {}$".format(message, name)'
         return code
