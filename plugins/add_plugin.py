@@ -5,7 +5,7 @@ class AddPluginPlugin(WillPlugin):
 
     @hear("^/bender-add-plugin (?P<name>.\w+) (?P<code>.*)", multiline=True)
     def add_plugin(self, message, name, code):
-        """add_plugin: Add a plugin to Bender from within HipChat"""
+        """/bender-add-plugin: Add a plugin to Bender from within HipChat"""
         self.say("I'm working on it.")
 
         if not name.endswith('.py'):
@@ -20,5 +20,5 @@ class AddPluginPlugin(WillPlugin):
 
     @hear("^/bender-add-plugin help$")
     def help(self, message):
-        """help: See the proper command for adding a plugin to Bender"""
+        """/bender-add-plugin help: See the proper command for adding a plugin to Bender"""
         self.reply(message, "/bender-add-plugin my_plugin_file_name print 'Insert Bender Quote Here'")
