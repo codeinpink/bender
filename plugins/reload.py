@@ -8,4 +8,4 @@ class RestartWill(WillPlugin):
     def restart(self, message):
         """restart: restarts Will"""
         self.say("FYI. I'm going to restart", message=message)
-        os.execl('bin/restart.sh', '')
+        os.execl('./restart.sh', '')
