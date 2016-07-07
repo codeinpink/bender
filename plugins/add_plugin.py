@@ -6,16 +6,15 @@ class AddPluginPlugin(WillPlugin):
     @hear("^/bender-add-plugin (?P<name>.\w+) (?P<code>.*)", multiline=True)
     def add_plugin(self, message, name, code):
         """add_plugin: Add a plugin to Bender from within HipChat"""
-        self.say(message, "I'm working on it.")
-        self.say("Here's your new plugin, {}.py".format(name))
-        self.say("/code {}".format(code))
+        self.say("I'm working on it.")
 
-	if name.endswith('.py'):
-	    with open('plugins/' + name , 'w+') as f:
-	        f.write(code)
-	else:
-	    with open('plugins/' + name + '.py', 'w+') as f:
-	        f.write(code)
+        if not name.endswith('.py'):
+            name = name + '.py'
+
+        with open('plugins/' + name , 'w+') as f:
+            f.write(code)
+            self.say("Here's your new plugin, {}".format(name))
+            self.say("/code {}".format(code))
 
         self.reply(message, "Done!")
 
