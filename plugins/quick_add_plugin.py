@@ -6,7 +6,7 @@ class QuickAddPluginPlugin(WillPlugin):
     def quick_add_plugin(self, message, name, code):
         """quick_add_plugin: Add a plugin to Bender from within HipChat"""
         self.say("I'm working on it.")
-	code = this.quick_wrap_code(messsage, name, code)
+	code = self.quick_wrap_code(messsage, name, code)
         self.say("Here's your new plugin, {}.py".format(name))
         self.say("/code {}".format(code))
 
@@ -19,7 +19,7 @@ class QuickAddPluginPlugin(WillPlugin):
 
         self.reply(message, "Done!")
 	
-    def quick_wrap_code(message, name, code):
+    def quick_wrap_code(self, message, name, code):
         code += 'from will.plugin import WillPlugin\n' + \
                  'from will.decorators import respond_to, periodic, hear, randomly, route, rendered_template, require_settings\n\n' + \
                  'class QuickAddPluginPlugin(WillPlugin):\n' + \
