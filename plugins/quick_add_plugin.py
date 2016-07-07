@@ -21,6 +21,7 @@ class QuickAddPluginPlugin(WillPlugin):
 	
     def quick_wrap_code(self, message, name, code):
         code_array = code.split('\n')
+        print code_array
         code = 'from will.plugin import WillPlugin\n' + \
                  'from will.decorators import respond_to, periodic, hear, randomly, route, rendered_template, require_settings\n\n' + \
                  'class QuickAddPluginPlugin(WillPlugin):\n' + \
