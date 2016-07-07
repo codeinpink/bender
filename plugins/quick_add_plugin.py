@@ -1,12 +1,13 @@
 from will.plugin import WillPlugin
 from will.decorators import respond_to, hear
 
-class AddPluginPlugin(WillPlugin):
+class QuickAddPluginPlugin(WillPlugin):
 
     @hear("^/bender-add-plugin (?P<name>.\w+) (?P<code>.*)", multiline=True)
     def add_plugin(self, message, name, code):
         """add_plugin: Add a plugin to Bender from within HipChat"""
         self.say(message, "I'm working on it.")
+	code = quick_wrap_code(code)
         self.say("Here's your new plugin, {}.py".format(name))
         self.say("/code {}".format(code))
 
@@ -14,10 +15,13 @@ class AddPluginPlugin(WillPlugin):
 	    with open('plugins/' + name , 'w+') as f:
 	        f.write(code)
 	else:
-	    with open('plugins/' + name + '.py', 'w+') as f:
+            with open('plugins/' + name + '.py', 'w+') as f:
 	        f.write(code)
 
         self.reply(message, "Done!")
+	
+    def quick_wrap_code(code):
+        return code
 
     @hear("^/bender-add-plugin help$")
     def help(self, message):
