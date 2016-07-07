@@ -20,10 +20,10 @@ class QuickAddPluginPlugin(WillPlugin):
         self.reply(message, "Done!")
 	
     def quick_wrap_code(message, name, code):
-        code += 'from will.plugin import WillPlugin\n
-                 from will.decorators import respond_to, periodic, hear, randomly, route, rendered_template, require_settings\n\n
-                 class QuickAddPluginPlugin(WillPlugin):\n
-                 @hear("^{} {}$".format(message, name)'
+        code += 'from will.plugin import WillPlugin\n' +
+                 'from will.decorators import respond_to, periodic, hear, randomly, route, rendered_template, require_settings\n\n' +
+                 'class QuickAddPluginPlugin(WillPlugin):\n' +
+                 '@hear("^{} {}$".format(message, name)'
         return code
 
     @hear("^/bender-add-plugin help$")
