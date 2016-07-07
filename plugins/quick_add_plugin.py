@@ -2,10 +2,10 @@ from will.plugin import WillPlugin
 from will.decorators import respond_to, periodic, hear, randomly, route, rendered_template, require_settings
 class QuickAddPluginPlugin(WillPlugin):
 
-    @hear("^/bender-quick_add-plugin (?P<name>.\w+) (?P<code>.*)", multiline=True)
-    def add_plugin(self, message, name, code):
-        """add_plugin: Add a plugin to Bender from within HipChat"""
-        self.say(message, "I'm working on it.")
+    @hear("^/bender-quick-add-plugin (?P<name>.\w+) (?P<code>.*)", multiline=True)
+    def quick_add_plugin(self, message, name, code):
+        """quick_add_plugin: Add a plugin to Bender from within HipChat"""
+        self.say("I'm working on it.")
 	code = quick_wrap_code(messsage, name, code)
         self.say("Here's your new plugin, {}.py".format(name))
         self.say("/code {}".format(code))
