@@ -23,7 +23,7 @@ class QuickAddPluginPlugin(WillPlugin):
         code = 'from will.plugin import WillPlugin\n' + \
                  'from will.decorators import respond_to, periodic, hear, randomly, route, rendered_template, require_settings\n\n' + \
                  'class QuickAddPluginPlugin(WillPlugin):\n' + \
-                 '\t@hear("^{} {}$".format(message, name)' + \
+                 '\t@hear("^{} {}$".format(message, name)\n' + \
 		 '\t{}'.format(code)
         return code
 
