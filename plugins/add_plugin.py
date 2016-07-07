@@ -19,3 +19,8 @@ class AddPluginPlugin(WillPlugin):
         """reload: Reload Bender to use new plugins"""
         self.reply(message, "Be back online in a second, baby.")
         # Do stuff here
+
+    @hear("^/bender-add-plugin help$")
+    def help(self, message):
+        """help: See the proper command for adding a plugin to Bender"""
+        self.reply(message, "/bender-add-plugin my_plugin_file_name print 'Insert Bender Quote Here'")
