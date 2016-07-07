@@ -24,9 +24,9 @@ class QuickAddPluginPlugin(WillPlugin):
         code = 'from will.plugin import WillPlugin\n' + \
                  'from will.decorators import respond_to, periodic, hear, randomly, route, rendered_template, require_settings\n\n' + \
                  'class QuickAddPluginPlugin(WillPlugin):\n' + \
-                 '\t@hear("^{} {}$".format(message, name)\n' 
+                 '\t@hear("^{} {}$".format(message, name)' 
         for line_of_code in code_array:
-            code += '\t{}'.format(line_of_code)
+            code += '\n\t{}'.format(line_of_code)
         return code
 
     @hear("^/bender-quick-add-plugin help$")
