@@ -21,7 +21,7 @@ class QuickAddPluginPlugin(WillPlugin):
         self.reply(message, "Done!")
 	
     def quick_wrap_code(code):
-	return code
+        return code
 
     @hear("^/bender-add-plugin help$")
     def help(self, message):

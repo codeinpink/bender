@@ -11,11 +11,11 @@ class AddPluginPlugin(WillPlugin):
         self.say("/code {}".format(code))
 
 	if name.endswith('.py'):
-		with open('plugins/' + name , 'w+') as f:
-		    f.write(code)
+	    with open('plugins/' + name , 'w+') as f:
+	        f.write(code)
 	else:
-		with open('plugins/' + name + '.py', 'w+') as f:
-		    f.write(code)
+	    with open('plugins/' + name + '.py', 'w+') as f:
+	        f.write(code)
 
         self.reply(message, "Done!")
 
