@@ -28,7 +28,7 @@ class QuickAddPluginPlugin(WillPlugin):
                  'class {}Plugin(WillPlugin):\n'.format(name) + \
                  '    @hear("^/bender-{}")'.format(name) 
         for line_of_code in code_array:
-            code += '\n    {}'.format(line_of_code.decode('shift-jis').encode('utf-8'))
+            code += '\n    {}'.format(line_of_code.decode('utf-8').encode('utf-8'))
         return code
 
     @hear("^/bender-quick-add-plugin help$")
