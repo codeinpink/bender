@@ -26,7 +26,7 @@ class QuickAddPluginPlugin(WillPlugin):
                  'from will.plugin import WillPlugin\n' + \
                  'from will.decorators import respond_to, periodic, hear, randomly, route, rendered_template, require_settings\n\n' + \
                  'class {}Plugin(WillPlugin):\n'.format(name) + \
-                 '    @hear("^/bender-{}")\n'.format(name) 
+                 '    @hear("^/bender-{}")'.format(name) 
         for line_of_code in code_array:
             code += '    {}\n'.format(line_of_code.decode('utf-8').encode('utf-8'))
         return code
