@@ -23,13 +23,13 @@ def releasePendingPackage():
 def saveFileToRepo(request):
 
     os.chdir(repo_dir)
-    
+
     with open(request['filename'], "w") as f:
         f.write(request['code'])
-        
+
     os.chdir(current_dir)
 
-@get('/getFileInfo')   
+@get('/getFileInfo')
 def getFileInfo():
     files = os.listdir(repo_dir)
     os.chdir(repo_dir)
@@ -38,10 +38,10 @@ def getFileInfo():
         with open (file, "r") as currentfile:
             data=currentfile.readlines()
             tmp.append({"filename": file, "code": data})
-            
+
     os.chdir(current_dir)
     sort_tmp = sorted(tmp, key = lambda k: k['filename'])
     return sort_tmp
-    
+
 if __name__ == "__main__":
-    run()
+    run(reloader=True)
