@@ -1,10 +1,13 @@
-from will.plugin import WillPlugin
 from will.decorators import respond_to, periodic, hear, randomly, route, rendered_template, require_settings
 class QuickAddPluginPlugin(WillPlugin):
 
     @hear("^/bender-quick-add-plugin\s*(?P<name>.\w+)\s*\n?\s*(?P<code>.*)", multiline=True)
     def quick_add_plugin(self, message, name, code):
-        """/bender-quick-add-plugin: Add a plugin to Bender from within HipChat"""
+        """
+           /bender-quick-add-plugin: Add a plugin to Bender from within HipChat
+                             Syntax: <plugin name> <plugin code>
+                             Output: /bender-<plugin name>
+        """
         self.say("I'm working on it.")
 	code = self.quick_wrap_code(message, name, code)
         self.say("Here's your new plugin, {}.py".format(name))
@@ -30,8 +33,3 @@ class QuickAddPluginPlugin(WillPlugin):
         for line_of_code in code_array:
             code += '    {}\n'.format(line_of_code.decode('utf-8').encode('utf-8'))
         return code
-
-    @hear("^/bender-quick-add-plugin help$")
-    def help(self, message):
-        """help: See the proper command for adding a plugin to Bender"""
-        self.reply(message, "/bender-add-plugin my_plugin_file_name print 'Insert Bender Quote Here'")
