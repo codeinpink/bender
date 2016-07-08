@@ -7,11 +7,11 @@ class LunchMenuPlugin(WillPlugin):
 
     @hear("^/bender-lunch-menu")
     def get_lunch_menu(self, message):
-        """get_lunch_menu: Get this week's lunch menu"""
+        """/bender-lunch-menu: Get this week's lunch menu"""
         self.say(self.menu_URL)
 
     @hear("^/bender-set-lunch-menu (?P<url>.*)")
     def set_lunch_menu(self, message, url):
-        """set_lunch_menu: Set this week's lunch menu"""
+        """/bender-set-lunch-menu: Set this week's lunch menu"""
         self.menu_URL = url
         self.say("URL updated!")
