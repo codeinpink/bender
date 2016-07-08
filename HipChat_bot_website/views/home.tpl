@@ -6,7 +6,7 @@
 % include("nav.tpl")
 
 <!-- Main content -->
-<h1>Welcome to the Bender bot site</h1>
+<h1>Welcome to the Bender Bot site</h1>
 
 % include("footer.tpl")
 
