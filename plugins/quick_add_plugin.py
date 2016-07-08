@@ -31,6 +31,7 @@ class QuickAddPluginPlugin(WillPlugin):
         for line_of_code in code_array:
             if first:
                 code += '{}\n'.format(line_of_code.decode('utf-8').encode('utf-8'))
+                first = False
             else:
                 code += '    {}\n'.format(line_of_code.decode('utf-8').encode('utf-8'))
         return code
