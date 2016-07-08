@@ -4,7 +4,7 @@ class QuickAddPluginPlugin(WillPlugin):
 
     @hear("^/bender-quick-add-plugin (?P<name>.\w+) (?P<code>.*)", multiline=True)
     def quick_add_plugin(self, message, name, code):
-        """quick_add_plugin: Add a plugin to Bender from within HipChat"""
+        """/bender-quick-add-plugin: Add a plugin to Bender from within HipChat"""
         self.say("I'm working on it.")
 	code = self.quick_wrap_code(message, name, code)
         self.say("Here's your new plugin, {}.py".format(name))
