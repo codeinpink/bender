@@ -14,7 +14,7 @@ class RemovePluginPlugin(WillPlugin):
             self.reply(message, "Are you trying to get me in trouble? That plugin doesn't exist!")
         else:
             os.remove("plugins/{}".format(name))
-            self.reply(message, "Done!")
+            self.reply(message, "Reload me to complete the removal")
 
     @hear("^/bender-remove-plugin help$")
     def help(self, message):
