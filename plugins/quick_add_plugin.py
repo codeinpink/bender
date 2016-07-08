@@ -9,9 +9,8 @@ class QuickAddPluginPlugin(WillPlugin):
                              Syntax: <plugin name> <plugin code>
                              Output: /bender-<plugin name>
         """
-        self.say("I'm working on it.")
 	code = self.quick_wrap_code(message, name, code)
-        self.say("Here's your new plugin code!")
+        self.say("Look at all this pretty Python you wrote.")
         self.say("/code {}".format(code))
 
 	if name.endswith('.py'):
@@ -21,7 +20,7 @@ class QuickAddPluginPlugin(WillPlugin):
             with open('plugins/' + name + '.py', 'w+') as f:
 	        f.write(code)
 
-        self.reply(message, "Use the command, /bender-{}, to run your plugin!".format(name))
+        self.reply(message, "Use the command '/bender-{}' to run your plugin!".format(name))
 	
     def quick_wrap_code(self, message, name, code):
         code_array = code.split('\n')
