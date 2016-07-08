@@ -6,7 +6,7 @@ class RemovePluginPlugin(WillPlugin):
 
     @hear("^/bender-remove-plugin (?P<name>.\w+)")
     def remove_plugin(self, message, name):
-        """/bender-remove-plugin: Remove a Bender plugin from within HipChat"""
+        """/bender-remove-plugin: Take away one of my plugins from within HipChat"""
         if not name.endswith(".py"):
             name = name + ".py"
 
@@ -18,5 +18,5 @@ class RemovePluginPlugin(WillPlugin):
 
     @hear("^/bender-remove-plugin help$")
     def help(self, message):
-        """/bender-remove-plugin help: See the proper command for removing a Bender plugin"""
+        """/bender-remove-plugin help: See the proper command for removing one of my plugins"""
         self.reply(message, "/bender-remove-plugin my_plugin_file_name")

@@ -6,6 +6,6 @@ import os
 class ReloadBenderPlugin(WillPlugin):
     @hear('^/bender-reload$')
     def reload(self, message):
-        """/bender-reload: reloads/restarts Bender"""
+        """/bender-reload: reloads/restarts me."""
         self.say("FYI: I'm going to restart.", message=message)
         os.execl('./restart.sh', '')
