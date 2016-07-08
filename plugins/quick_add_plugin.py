@@ -6,8 +6,8 @@ class QuickAddPluginPlugin(WillPlugin):
     def quick_add_plugin(self, message, name, code):
         """
            /bender-quick-add-plugin: Add a plugin to Bender from within HipChat
-                             Syntax: <plugin name> <plugin code>
-                             Output: /bender-<plugin name>
+                             Syntax: {plugin names} {plugin code}
+                             Output: /bender-{plugin name}
         """
 	code = self.quick_wrap_code(message, name, code)
         self.say("Look at all this pretty Python you wrote.")
