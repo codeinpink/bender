@@ -20,7 +20,7 @@ class AddPluginPlugin(WillPlugin):
             with open('plugins/' + name + '.py', 'w+') as f:
 	        f.write(code)
 
-        self.reply(message, "Use the command '/bender-{}' to run your plugin!".format(name))
+        self.reply(message, "Reload me! Then you can use the command '/bender-{}' to run your plugin!\n".format(name))
 	
     def quick_wrap_code(self, message, name, code):
         code_array = code.split('\n')
