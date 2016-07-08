@@ -1,4 +1,4 @@
-from will.plugin import WillPlugin
+'''from will.plugin import WillPlugin
 from will.decorators import respond_to, hear
 
 class AddPluginPlugin(WillPlugin):
@@ -22,3 +22,4 @@ class AddPluginPlugin(WillPlugin):
     def help(self, message):
         """/bender-add-plugin help: See the proper command for adding a plugin to Bender"""
         self.reply(message, "/bender-add-plugin my_plugin_file_name print 'Insert Bender Quote Here'")
+        '''
