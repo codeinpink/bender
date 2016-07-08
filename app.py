@@ -2,7 +2,7 @@ from bottle import route, run, template, SimpleTemplate, get, post, request, sta
 import os
 
 current_dir = os.getcwd()
-repo_dir = os.path.join(current_dir, "repo")
+repo_dir = os.path.join(current_dir, "plugins")
 
 @route('/')
 def index():
@@ -35,13 +35,14 @@ def getFileInfo():
     os.chdir(repo_dir)
     tmp = []
     for file in files:
-        with open (file, "r") as currentfile:
-            data=currentfile.readlines()
-            tmp.append({"filename": file, "code": data})
+        if os.path.isfile(file) and file.endswith('.py') and file != '__init__.py':
+            with open (file, "r") as currentfile:
+                data=currentfile.readlines()
+                tmp.append({"filename": file, "code": data})
 
     os.chdir(current_dir)
     sort_tmp = sorted(tmp, key = lambda k: k['filename'])
     return sort_tmp
 
 if __name__ == "__main__":
-    run(reloader=True)
+    run(reloader=True, debug=True)
