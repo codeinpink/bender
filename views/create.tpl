@@ -1,10 +1,10 @@
 % include("head.tpl", title="Create")
 % include("create_css.tpl")
 </head>
-<body style="background: url(http://media2.giphy.com/media/7xkxbhryQO7hm/giphy.gif) repeat; color: white;">
+<body style="background: url(http://media2.giphy.com/media/7xkxbhryQO7hm/giphy.gif) repeat;">
   % include("nav.tpl")
   <div class="container">
-    <div class="row">
+    <div class="row well" style="margin-top: 60px;">
       <form>
         <div class="form-group">
           <label for="filename">File Name</label>
